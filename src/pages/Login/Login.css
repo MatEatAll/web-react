@@ -1,0 +1,153 @@
+.login-wrapper {
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-slogan {
+  margin-top: 2rem;
+  text-align: center;
+  margin-bottom:2rem ;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  color: var(--color-sub);
+  font-family: "Paperlogy", var(--font-PLight);
+}
+
+.login-title {
+  font-size: 2rem;
+  color: var(--color-main);
+  font-family: var(--font-PBold);
+  margin-bottom: 1.5rem;
+}
+
+.login-container {
+  background: #ffffff;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 30px #d4d4d4;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 인풋 박스 */
+.login-input {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ff8339;  
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: var(--font-PRegular);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.login-input:focus {
+  border-color: #e56b20;
+}
+
+/* 에러 메시지 */
+.login-error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* 버튼 */
+.login-button {
+  background-color: #ff8339;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: var(--font-PMedium); 
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #e9722c;
+}
+
+.login-form-title {
+  font-size: 22px;
+  font-family: var(--font-PBold);
+  color: var(--color-title);
+  margin-bottom: 1.5rem;
+}
+
+.login-label {
+  font-size: 14px;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-PMedium);
+  color: var(--color-title);
+  display: block;
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .login-wrapper {
+    padding: 1.5rem;
+  }
+
+  .login-slogan {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+  .login-form-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-label {
+    font-size: 13px;
+  }
+
+  .login-input {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .login-button {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .login-error {
+    font-size: 0.8rem;
+  }
+}

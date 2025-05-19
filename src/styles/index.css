@@ -64,14 +64,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "Paperlogy";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2301@1.1/Paperlogy.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* ----------------------------------
    CSS Variables (Theme)
 ----------------------------------- */
