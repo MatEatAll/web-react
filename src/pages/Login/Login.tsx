@@ -10,7 +10,7 @@ export default function Login() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
-      setError("이메일과 비밀번호를 입력해주세요.");
+      setError("Please enter correct password");
       return;
     }
     setError("");
@@ -33,7 +33,7 @@ export default function Login() {
           <input
             id="email"
             type="email"
-            placeholder="이메일을 입력하세요"
+            placeholder="Enter your email"
             className="login-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -44,7 +44,7 @@ export default function Login() {
             <input
               id="password"
               type= "password"
-              placeholder="비밀번호를 입력하세요"
+              placeholder="Enter your password"
               className="login-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

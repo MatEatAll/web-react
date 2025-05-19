@@ -31,7 +31,7 @@
   padding: 2rem;
   width: 100%;
   max-width: 420px;
-  border-radius: 18px;
+  border-radius: 8px;
   box-shadow: 0px 0px 30px #d4d4d4;
 }
 
@@ -84,14 +84,14 @@
 }
 
 .login-form-title {
-  font-size: 1.25rem;
+  font-size: 22px;
   font-family: var(--font-PBold);
   color: var(--color-title);
   margin-bottom: 1.5rem;
 }
 
 .login-label {
-  font-size: 0.9rem;
+  font-size: 14px;
   margin-bottom: 0.3rem;
   font-family: var(--font-PMedium);
   color: var(--color-title);
@@ -100,4 +100,54 @@
 
 .password-input-wrapper {
   position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .login-wrapper {
+    padding: 1.5rem;
+  }
+
+  .login-slogan {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+  .login-form-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-label {
+    font-size: 13px;
+  }
+
+  .login-input {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .login-button {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .login-error {
+    font-size: 0.8rem;
+  }
 }
