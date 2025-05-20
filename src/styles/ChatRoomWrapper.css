@@ -1,0 +1,30 @@
+.chat-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.chat-list-panel {
+  width: 24%;                  /* ✅ 더 작게 */
+  min-width: 220px;
+  max-width: 280px;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.chat-room-panel {
+  flex: 1;                     /* ✅ 나머지 공간 다 차지 */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #f9f9f9;
+  min-width: 0;                /* ✅ flex item이 줄어들 수 있도록 */
+}
+
+.message-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 80px; /* ✅ 인풋박스와 겹치지 않게 하단 여백 확보 */
+}
