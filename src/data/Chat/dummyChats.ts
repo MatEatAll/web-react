@@ -16,6 +16,10 @@ export const dummyMessages: Record<number, Message[]> = {
   1: [
     { id: 1, sender: 'Alice', content: 'Hi!', timestamp: '10:00' },
     { id: 2, sender: 'me', content: 'Hello!', timestamp: '10:01' },
+    { id: 3, sender: 'Alice', content: 'Hi!', timestamp: '10:00' },
+    { id: 4, sender: 'me', content: 'Hello!', timestamp: '10:01' },
+    { id: 5, sender: 'Alice', content: 'Hi!', timestamp: '10:00' },
+    { id: 6, sender: 'me', content: 'Hello!', timestamp: '10:01' },
   ],
   2: [
     { id: 1, sender: 'Bob', content: 'Let’s catch up later.', timestamp: '11:00' },
