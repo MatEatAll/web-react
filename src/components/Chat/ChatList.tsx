@@ -61,24 +61,26 @@ const ChatList: FC<ChatListProps> = ({ users, onSelect, selectedId }) => {
         onClick={() => setShowUnreadOnly((prev) => !prev)}
         style={{ cursor: "pointer" }}
       >
-        <span>안읽은 메시지만 보기</span>
-        <span className="check-icon">
-          <svg
-            fill="none"
-            strokeWidth="1.5"
-            stroke={showUnreadOnly ? "#f97316" : "currentColor"}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
-        </span>
+        <div className="header-toggle">
+          <span>안읽은 메시지만 보기</span>
+          <span className="check-icon">
+            <svg
+              fill="none"
+              strokeWidth="1.5"
+              stroke={showUnreadOnly ? "#f97316" : "currentColor"}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+          </span>
+        </div>
       </div>
 
       {filteredUsers.map((user) => (
@@ -91,10 +93,12 @@ const ChatList: FC<ChatListProps> = ({ users, onSelect, selectedId }) => {
             <span className="chat-list-name">{user.name}</span>
             <span className="chat-list-date">{user.lastDate}</span>
           </div>
-          <div className="chat-list-message">{user.lastMessage}</div>
-          {typeof user.unreadCount === "number" && user.unreadCount > 0 && (
-            <div className="unread-badge">{user.unreadCount}</div>
-          )}
+          <div className="chat-list-message-row">
+            <div className="chat-list-message">{user.lastMessage}</div>
+            {typeof user.unreadCount === "number" && user.unreadCount > 0 && (
+              <div className="unread-badge">{user.unreadCount}</div>
+            )}
+          </div>
         </div>
       ))}
     </div>
