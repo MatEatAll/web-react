@@ -1,0 +1,57 @@
+.input-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px; /* 또는 auto */
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  z-index: 10;
+}
+
+.plus-button {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+}
+
+.input-container input {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.send-button {
+  background-color: #FF8339;
+  color: #000;
+  font-weight: 600;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.send-button:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}

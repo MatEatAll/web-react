@@ -7,8 +7,8 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={() => navigate('/login')}>
-        로그인 
+      <button onClick={() => navigate('/chat')}>
+      chat
       </button>
     </div>
   );
