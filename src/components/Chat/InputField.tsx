@@ -28,9 +28,9 @@ const InputField: FC<InputFieldProps> = ({ message, setMessage, sendMessage }) =
           className="send-button"
           variant="contained"
           sx={{
-            backgroundColor: "#F7E600",
-            color: "#000",
-            borderRadius: 0,
+            backgroundColor: "#FF8339",
+            color: "#ffffff",
+            borderRadius: 1,
             minWidth: "70px",
           }}
         >

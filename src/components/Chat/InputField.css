@@ -32,7 +32,7 @@
 
 .input-container input {
   flex: 1;
-  height: 40px; /* ✅ 명시적으로 지정 */
+  height: 40px;
   border: 1px solid #ccc;
   border-radius: 6px;
   padding: 0 12px;
@@ -40,13 +40,13 @@
 }
 
 .send-button {
-  background-color: #f7e600;
+  background-color: #FF8339;
   color: #000;
   font-weight: 600;
   height: 40px;
   padding: 0 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
