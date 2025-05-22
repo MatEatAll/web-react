@@ -84,9 +84,10 @@ export default function Chat() {
             sendMessage={sendMessage}
           />
         ) : (
-          <div style={{ padding: "2rem", color: "#888" }}>
-            채팅을 시작할 대화를 선택하세요.
-          </div>
+        <div className="chat-placeholder">
+  <p className="login-subtitle">경험의 맛을 잇다</p>
+  <h1 className="login-title">맛잇다</h1>
+</div>
         )}
       </div>
     </div>
