@@ -20,7 +20,7 @@ const ChatRoom: FC<ChatRoomProps> = ({
   sendMessage,
 }) => {
   return (
-    <div className="chat-room-panel">
+    <div className="chat-room-wrapper">
       <div className="message-scroll-area">
         <MessageContainer
           messageList={messageList.map((msg) => ({
@@ -31,13 +31,14 @@ const ChatRoom: FC<ChatRoomProps> = ({
           user={{ name: 'me' }}
         />
       </div>
-      <InputField
-        message={message}
-        setMessage={setMessage}
-        sendMessage={sendMessage}
-      />
+      <div className="input-field-wrapper">
+        <InputField
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
+        />
+      </div>
     </div>
   );
 };
-
 export default ChatRoom;

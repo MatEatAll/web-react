@@ -31,14 +31,14 @@ export const dummyUsers = [
   {
     id: 1,
     name: "userID",
-    lastMessage: "문의내용",
+    lastMessage: "Hello!",
     lastDate: "2시간 전",
     unreadCount: 0,
   },
   {
     id: 2,
     name: "userID",
-    lastMessage: "아 네 감사합니다!",
+    lastMessage: "Sure!",
     lastDate: "2시간 전",
     unreadCount: 0,
   },

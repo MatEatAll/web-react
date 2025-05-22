@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type { FC } from "react";
 import "./ChatList.css";
 
@@ -18,13 +18,44 @@ interface ChatListProps {
 
 const ChatList: FC<ChatListProps> = ({ users, onSelect, selectedId }) => {
   const [showUnreadOnly, setShowUnreadOnly] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startY = useRef(0);
+  const scrollTop = useRef(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    startY.current = e.clientY;
+    scrollTop.current = wrapperRef.current?.scrollTop ?? 0;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current || !wrapperRef.current) return;
+    const diffY = e.clientY - startY.current;
+    wrapperRef.current.scrollTop = scrollTop.current - diffY;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+  };
 
   const filteredUsers = showUnreadOnly
     ? users.filter((user) => (user.unreadCount ?? 0) > 0)
     : users;
 
   return (
-    <div className="chat-list-wrapper">
+    <div
+      className="chat-list-wrapper"
+      ref={wrapperRef}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+    >
       <div
         className="chat-list-header"
         onClick={() => setShowUnreadOnly((prev) => !prev)}
@@ -33,13 +64,11 @@ const ChatList: FC<ChatListProps> = ({ users, onSelect, selectedId }) => {
         <span>안읽은 메시지만 보기</span>
         <span className="check-icon">
           <svg
-            data-slot="icon"
             fill="none"
             strokeWidth="1.5"
-            stroke={showUnreadOnly ? "#f97316" : "currentColor"} // 🟠 주황색: Tailwind orange-500
+            stroke={showUnreadOnly ? "#f97316" : "currentColor"}
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
             width="20"
             height="20"
           >
