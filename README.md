@@ -20,14 +20,14 @@
 <table>
 <tr>
   <td align="center">
-  <a href="https://github.com/sungwonnoh">
-  <img src="https://avatars.githubusercontent.com/u/49119359?v=4" width="200px;" alt="sungwonnoh"/><br />
-  <sub><b>노성원</b></sub>
-</a>
+    <a href="https://github.com/sungwonnoh">
+      <img src="https://github.com/sungwonnoh.png" width="200px;" alt="sungwonnoh"/><br />
+      <sub><b>노성원</b></sub>
+    </a>
   </td>
   <td align="center">
     <a href="https://github.com/Debuging-JunSeoPark">
-      <img src="https://avatars.githubusercontent.com/u/77110148?v=4" width="200px;" alt="Debuging-JunSeoPark"/><br />
+      <img src="https://github.com/Debuging-JunSeoPark.png" width="200px;" alt="Debuging-JunSeoPark"/><br />
       <sub><b>박준서</b></sub>
     </a>
   </td>
