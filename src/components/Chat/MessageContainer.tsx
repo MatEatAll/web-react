@@ -11,7 +11,7 @@ interface MessageContainerProps {
 const MessageContainer: FC<MessageContainerProps> = ({ messageList, user }) => {
     return (
         <>
-            {messageList.map((message, index) => (
+            {messageList.map((message, _index) => (
                 <Container key={message._id} className="message-container">
                     {message.user.name === "system" ? (
                         <div className="system-message-container">
