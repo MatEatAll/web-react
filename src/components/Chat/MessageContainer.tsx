@@ -12,7 +12,7 @@ const MessageContainer: FC<MessageContainerProps> = ({ messageList, user }) => {
     return (
         <>
             {messageList.map((message, _index) => (
-                <Container key={message._id} className="message-container">
+                <Container key={message._id} className="message-container" disableGutters>
                     {message.user.name === "system" ? (
                         <div className="system-message-container">
                             <p className="system-message">{message.chat}</p>

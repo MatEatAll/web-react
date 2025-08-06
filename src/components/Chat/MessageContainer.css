@@ -19,7 +19,7 @@
 .my-message-container {
   display: flex;
   justify-content: flex-end;
-  padding: 4px 16px;
+  padding: 4px 0px;
 }
 
 .my-message {
@@ -38,10 +38,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 4px 16px;
+  padding: 4px 0px;
   gap: 8px;
 }
-
+/*
 .profile-image {
   width: 32px;
   height: 32px;
@@ -49,6 +49,7 @@
   object-fit: cover;
   margin-top: 4px;
 }
+*/
 
 .your-message {
   background-color: #F7F7F7;
