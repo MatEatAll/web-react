@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation} from "react-router-dom";
 import "./Login.css";
 import { loginAdmin } from "../../api/auth";
 import { useAuth } from "../../hooks/useAuth";
@@ -10,9 +10,10 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { saveTokens } = useAuth();
 
-  const handleLogin = async (e: React.FormEvent) => {
+const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!adminName || !password) {
       setError("아이디와 비밀번호를 입력하세요.");
@@ -25,20 +26,24 @@ export default function Login() {
       const res = await loginAdmin({ adminName, password });
       if (res.isSuccess && res.result) {
         saveTokens(res.result);
-        navigate("/"); // 필요 시 직전 경로로 이동 로직으로 교체 가능
+
+        // from이 있으면 거기로, 없으면 /chat
+        const from = (location.state as any)?.from?.pathname || "/chat";
+        navigate(from, { replace: true });
       } else {
         setError(res.message || "로그인에 실패했습니다.");
       }
     } catch (err: any) {
       setError(
         err?.response?.data?.message ||
-        err?.message ||
-        "서버 통신 중 오류가 발생했습니다."
+          err?.message ||
+          "서버 통신 중 오류가 발생했습니다."
       );
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="login-wrapper">
