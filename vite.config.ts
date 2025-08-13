@@ -1,7 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://mateatall.com",
+        changeOrigin: true,
+        // mateatall이 HTTPS이므로 기본적으로 OK.
+        // (만약 로컬/사설 인증서라면 secure:false 추가)
+        // secure: false,
+      },
+    },
+  },
+});

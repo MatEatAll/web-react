@@ -66,10 +66,11 @@
 
 @font-face {
   font-family: "Paperlogy";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2301@1.1/Paperlogy.woff2")
+  src: url("https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-4Regular.woff2")
     format("woff2");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ----------------------------------
