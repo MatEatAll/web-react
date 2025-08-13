@@ -1,28 +1,47 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { loginAdmin } from "../../api/auth";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [adminName, setAdminName] = useState("");
   const [password, setPassword] = useState("");
-  //const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { saveTokens } = useAuth();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError("Please enter correct password");
+    if (!adminName || !password) {
+      setError("아이디와 비밀번호를 입력하세요.");
       return;
     }
     setError("");
-    console.log("Login:", email, password);
-    navigate("/");
+    setLoading(true);
+
+    try {
+      const res = await loginAdmin({ adminName, password });
+      if (res.isSuccess && res.result) {
+        saveTokens(res.result);
+        navigate("/"); // 필요 시 직전 경로로 이동 로직으로 교체 가능
+      } else {
+        setError(res.message || "로그인에 실패했습니다.");
+      }
+    } catch (err: any) {
+      setError(
+        err?.response?.data?.message ||
+        err?.message ||
+        "서버 통신 중 오류가 발생했습니다."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="login-wrapper">
-
       <div className="login-slogan">
         <p className="login-subtitle">경험의 맛을 잇다</p>
         <h1 className="login-title">맛잇다</h1>
@@ -32,32 +51,32 @@ export default function Login() {
         <form className="login-form" onSubmit={handleLogin}>
           <h2 className="login-form-title">Admin Login</h2>
 
-          <label className="login-label" htmlFor="email">Email Address</label>
+          <label className="login-label" htmlFor="adminName">Admin Name</label>
           <input
-            id="email"
-            type="email"
-            placeholder="Enter your email"
+            id="adminName"
+            type="text"
+            placeholder="Enter your admin name"
             className="login-input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={adminName}
+            onChange={(e) => setAdminName(e.target.value)}
+            autoComplete="username"
           />
 
           <label className="login-label" htmlFor="password">Password</label>
-          
-            <input
-              id="password"
-              type= "password"
-              placeholder="Enter your password"
-              className="login-input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-  
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            className="login-input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+          />
 
           {error && <p className="login-error">{error}</p>}
 
-          <button type="submit" className="login-button">
-            로그인
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? "로그인 중..." : "로그인"}
           </button>
         </form>
       </div>
