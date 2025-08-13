@@ -8,7 +8,7 @@ export default function ProtectedRoute({ children }: { children: JSX.Element }) 
 
   // 토큰 없으면 로그인으로 보내되, 돌아올 위치를 state에 담아둔다.
   if (!accessToken) {
-    return <Navigate to="/login" replace state={{ from: location }} />;
+    return <Navigate to="/" replace state={{ from: location }} />;
   }
   return children;
 }
